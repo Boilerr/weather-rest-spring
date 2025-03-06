@@ -3,12 +3,14 @@ package weather.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-
+import java.util.Arrays;
+import java.util.Objects;
 
 
 @Entity
 @Table(name = "weather")
 public class WeatherData {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -107,5 +109,36 @@ public class WeatherData {
         this.temperatures = temperatures;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+        WeatherData that = (WeatherData) o;
+        return Objects.equals(id, that.id) && Objects.equals(date, that.date) && Objects.equals(lat, that.lat) && Objects.equals(lon, that.lon) && Objects.equals(city, that.city) && Objects.equals(state, that.state) && Arrays.equals(temperatures, that.temperatures);
+    }
+
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(id, date, lat, lon, city, state);
+        result = 31 * result + Arrays.hashCode(temperatures);
+        return result;
+    }
+
+
+    @Override
+    public String toString() {
+        return "WeatherData{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", lat=" + lat +
+                ", lon=" + lon +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", temperatures=" + Arrays.toString(temperatures) +
+                '}';
+    }
 
 }
