@@ -233,4 +233,29 @@ class WeatherControllerTest {
                                 parameterWithName("id").description("The id of the input to delete"))));
     }
 
+    @Test
+    void getOneById3() throws Exception {
+        this.mockMvc.perform(delete("/weather/37").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andDo(document("indexDelete", preprocessResponse(prettyPrint())));
+
+    }
+
+    @Test
+    void getOneById4() throws Exception {
+        this.mockMvc.perform(put("/weather/37").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andDo(document("indexDelete", preprocessResponse(prettyPrint())));
+
+    }
+
+    @Test
+    void getOneById5() throws Exception {
+        this.mockMvc.perform(post("/weather/37").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andDo(document("indexDelete", preprocessResponse(prettyPrint())));
+
+    }
+}
+
 }
