@@ -50,6 +50,22 @@ curl -X DELETE localhost:8080/employees/3
 curl -v localhost:8080/weather | json_pp
 ```
 
+- Check @RequestParam state and city
+```shell
+curl -v -H "Accept: application/json" 'http://localhost:8080/weather/opt?state=Texas&city=Austin' | json_pp
+```
+- Check optional @RequestParam state
+```shell
+curl -v -H "Accept: application/json" 'http://localhost:8080/weather/opt?state=Maryland' | json_pp
+```
+- Check optional @RequestParam state
+```shell
+curl -v -H "Accept: application/json" 'http://localhost:8080/weather/opt?state=Texas' | json_pp
+```
+- Check optional @RequestParam city
+```shell
+curl -v -H "Accept: application/json" 'http://localhost:8080/weather/opt?city=Boston' | json_pp
+```
 
 
 ## curl parameters
