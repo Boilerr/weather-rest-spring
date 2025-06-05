@@ -9,12 +9,25 @@ import org.springframework.web.bind.annotation.*;
 public class WeatherController {
 
 
+    @GetMapping(path = "/weather/id", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+        //200
+    String saveNewWeather2() {
+        return "SomeString";
+    }
+
     @PostMapping(path = "", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     String saveNewWeather() {
         return "SomeString";
     }
 
+    @DeleteMapping(path = "/weather/<id>", produces = "application/json")
+    @ResponseStatus(HttpStatus.OK)
+        //200
+    String saveNewWeather3() {
+        return "SomeString";
+    }
 
     // Optional Parameters
 
